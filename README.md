@@ -21,21 +21,61 @@ For those that are unfamiliar with *Tetris*, there are 7 unique shapes (made of 
     - [ ] Is over when a block exceed the top boundary of playing field
 
 ## Architecture and Technologies
-* Vanilla JavaScript
+* `Vanilla JavaScript`
     * Overall structure and game logic
-* HTML5 Canvas
+* `HTML5 Canvas`
     * DOM manipulation and game rendering
+* `Web Audio API`
+    * Sound generation, processing, and control
+* `Webpack`
+    * Bundle and serve up various scripts
 
+### Main Files
+* `board.js`
+* `shapes` folder
+    * `i.js`
+    * `j.js`
+    * `l.js`
+    * `o.js`
+    * `t.js`
+    * `s.js`
+    * `z.js`
+* `player.js`
+* `scoreboard.js`
 
 ---
-    * Technology 1
-        * Description
-        * Justification
-    * Technology 2
-        * Description
-        * Justification
-    ...
-    Implementation Timeline
-        * Most important category
-        * Daily breakdown
-        * Aim to be done by Friday
+## Development Timeline
+**Day 1**
+- [ ] Review JavaScript & Canvas
+- [ ] Research other applicable documentation (i.e. color themes)
+- [ ] Build basic project skeleton
+
+**Day 2**
+- [ ] Create shapes
+- [ ] Implement shape manipulation/movement via keyboard
+
+**Day 3**
+* Build board logic
+    - [ ] Completed rows are deleted
+    - [ ] Aggregate line height calculation & **game over** logic
+    - [ ] Implement time interval for falling shapes
+    - [ ] Increase level & shorten "fall interval" when specified scores are reached
+
+**Day 4**
+- Finish board logic
+    - [ ] Completed rows are deleted
+    - [ ] Aggregate line height calculation & **game over** logic
+    - [ ] Implement time interval for falling shapes
+    - [ ] Increase level & shorten "fall interval" when specified scores are reached
+
+**Day 5**
+- [ ] Formulate scoring logic
+- [ ] Build `high scores` table
+
+**Over the Weekend**
+- [ ] Test for bugs
+- [ ] Implement color theme palette
+
+---
+## Bonus Features
+* Shadow that highlights falling shape's position-to-be
