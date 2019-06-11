@@ -44,6 +44,11 @@ For those that are unfamiliar with *Tetris*, there are 7 unique shapes (made of 
 * `scoreboard.js`
 
 ---
+## Wireframe
+
+<img src="./images/wireframe.png"/>
+
+---
 ## Development Timeline
 **Day 1**
 - [ ] Review JavaScript & Canvas
