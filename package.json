@@ -1,0 +1,25 @@
+{
+  "name": "javascript_project",
+  "version": "1.0.0",
+  "description": "*Tetris by Jeffrey* is a game that is functionally identical to *Tetris* but offers multiple color themes. The falling speed of tetrominos increases as the player ascendslevels. Players progress to higher levels by reaching specific point totals. The max level is 10.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "webpack": "webpack --watch --mode=development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeffChoJC/javascript_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JeffChoJC/javascript_project/issues"
+  },
+  "homepage": "https://github.com/JeffChoJC/javascript_project#readme",
+  "dependencies": {
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.4"
+  }
+}
