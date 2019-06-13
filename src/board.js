@@ -83,15 +83,19 @@ class Board {
     }
 
     clearLines() {
+        debugger
         for (let r = 0; r < this.row; r++) {
             for (let c = 0; c < this.column; c++) {
                 if (this.grid[r][c] === 'white') {
-                    debugger
                     break;
                 }
+
+                if (c === this.column - 1) {
+                    this.grid.splice(r, 1);
+                    this.grid.unshift(new Array(10).fill("white"));
+                    debugger
+                }
             }
-            this.grid.splice(r, 1);
-            this.grid.unshift(new Array(10).fill("white"));
         }
     }
 }

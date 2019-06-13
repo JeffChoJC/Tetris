@@ -42,7 +42,6 @@ class Tetromino {
         this.y = this.piece.y;
 
         this.draw(ctx);
-        // this.drop(ctx);
     }
     
     draw(ctx) {
@@ -78,7 +77,7 @@ class Tetromino {
                     }
                 }
             }
-            // this.board.clearLines();
+            this.board.clearLines();
             this.board.generateTetromino(ctx);
         }
     }
