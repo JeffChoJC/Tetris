@@ -50,7 +50,7 @@ class Tetromino {
     
     draw(ctx) {
         for (let r = 0; r < this.currentTetromino.length; r++) {
-            for (let c = 0; c < this.currentTetromino.length; c++) {
+            for (let c = 0; c < this.currentTetromino[r].length; c++) {
                 if (this.currentTetromino[r][c]) {
                     drawSquare(this.x + c, this.y + r, this.color, ctx);
                 }
@@ -60,7 +60,7 @@ class Tetromino {
 
     undraw(ctx) {
         for (let r = 0; r < this.currentTetromino.length; r++) {
-            for (let c = 0; c < this.currentTetromino.length; c++) {
+            for (let c = 0; c < this.currentTetromino[r].length; c++) {
                 if (this.currentTetromino[r][c]) {
                     drawSquare(this.x + c, this.y + r, "white", ctx);
                 }
@@ -75,7 +75,7 @@ class Tetromino {
     }
 
     moveRight(ctx) {
-        if (!this.board.collision(1, 0)) {
+        if (!this.board.collision(1, 0, this.currentTetromino)) {
             this.undraw(ctx);
             this.x++;
             this.draw(ctx);
@@ -83,7 +83,7 @@ class Tetromino {
     }
 
     moveLeft(ctx) {
-        if (!this.board.collision(-1, 0)) {
+        if (!this.board.collision(-1, 0, this.currentTetromino)) {
             this.undraw(ctx);
             this.x--;
             this.draw(ctx);
@@ -92,7 +92,7 @@ class Tetromino {
 
     rotate(ctx) {
         const next = this.piece.rotations[(this.rotation + 1) % (this.piece.rotations.length)]
-        if (!this.board.collision(0, 0)) {
+        if (!this.board.collision(0, 0, next)) {
             this.undraw(ctx);
             this.rotation = (this.rotation + 1) % (this.piece.rotations.length);
             this.currentTetromino = this.piece.rotations[this.rotation];

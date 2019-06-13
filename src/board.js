@@ -26,10 +26,10 @@ class Board {
         }
     }
 
-    collision(x, y) {
-        let currentTetromino = this.tetromino.currentTetromino;
+    collision(x, y, currentTetromino) {
+        debugger
         for (let r = 0; r < currentTetromino.length; r++) {
-            for (let c = 0; c < currentTetromino.length; c++) {
+            for (let c = 0; c < currentTetromino[r].length; c++) {
                 if (!currentTetromino[r][c]) {
                     continue;
                 }
