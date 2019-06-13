@@ -8,7 +8,9 @@ import Z from './z';
 import T from './t';
 
 class Tetromino {
-    constructor(ctx) {
+    constructor(board, ctx) {
+        this.board = board;
+
         switch (Math.floor(Math.random() * 7)) {
             case 0:
                 this.piece = new I();
@@ -73,22 +75,29 @@ class Tetromino {
     }
 
     moveRight(ctx) {
-        this.undraw(ctx);
-        this.x++;
-        this.draw(ctx);
+        if (!this.board.collision(1, 0)) {
+            this.undraw(ctx);
+            this.x++;
+            this.draw(ctx);
+        }
     }
 
     moveLeft(ctx) {
-        this.undraw(ctx);
-        this.x--;
-        this.draw(ctx);
+        if (!this.board.collision(-1, 0)) {
+            this.undraw(ctx);
+            this.x--;
+            this.draw(ctx);
+        }
     }
 
     rotate(ctx) {
-        this.undraw(ctx);
-        this.rotation = (this.rotation + 1) % (this.piece.rotations.length);
-        this.currentTetromino = this.piece.rotations[this.rotation];
-        this.draw(ctx);
+        const next = this.piece.rotations[(this.rotation + 1) % (this.piece.rotations.length)]
+        if (!this.board.collision(0, 0)) {
+            this.undraw(ctx);
+            this.rotation = (this.rotation + 1) % (this.piece.rotations.length);
+            this.currentTetromino = this.piece.rotations[this.rotation];
+            this.draw(ctx);
+        }
     }
 
     drop(ctx) {
@@ -100,7 +109,6 @@ class Tetromino {
     control(e, ctx) {
         switch (e.key) {
             case "ArrowRight":
-                debugger
                 this.moveRight(ctx);
                 break;
             case "ArrowLeft":
@@ -113,20 +121,6 @@ class Tetromino {
                 this.moveDown(ctx);
         }
     }
-
-    // collision(piece) {
-    //     for (let r = 0; r < piece.length; r++) {
-    //         for (let c = 0; c < piece.length; c++) {
-    //             if (!piece[r][c]){
-    //                 continue;
-    //             }
-    //             let newX = this.x + c;
-    //             let newY = this.y + r;
-
-    //             if (newX < 0 || newX >= )
-    //         }
-    //     }
-    // }
 }
 
 export default Tetromino;

@@ -15,7 +15,7 @@ class Board {
         }
 
         this.draw(ctx);
-        this.tetromino = new Tetromino(ctx);
+        this.tetromino = new Tetromino(this, ctx);
     }
 
     draw(ctx) {
@@ -24,6 +24,29 @@ class Board {
                 drawSquare(c, r, this.board[r][c], ctx);
             }
         }
+    }
+
+    collision(x, y) {
+        let currentTetromino = this.tetromino.currentTetromino;
+        for (let r = 0; r < currentTetromino.length; r++) {
+            for (let c = 0; c < currentTetromino.length; c++) {
+                if (!currentTetromino[r][c]) {
+                    continue;
+                }
+                let newX = this.tetromino.x + c + x;
+                let newY = this.tetromino.y + r + y;
+                debugger
+                if (newX < 0 || newX >= this.column || newY >= this.row) {
+                    debugger
+                    return true;
+                }
+                if (this.board[newY][newX] !== "white") {
+                    debugger
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
 
