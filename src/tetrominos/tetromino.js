@@ -42,10 +42,7 @@ class Tetromino {
         this.y = this.piece.y;
 
         this.draw(ctx);
-        this.drop(ctx);
-        this.control = this.control.bind(this)
-
-        document.addEventListener("keydown", e => this.control(e, ctx));
+        // this.drop(ctx);
     }
     
     draw(ctx) {
@@ -69,9 +66,21 @@ class Tetromino {
     }
 
     moveDown(ctx) {
-        this.undraw(ctx);
-        this.y++;
-        this.draw(ctx);
+        if (!this.board.collision(0, 1, this.currentTetromino)) {
+            this.undraw(ctx);
+            this.y++;
+            this.draw(ctx);
+        } else {
+            for (let r = 0; r < this.currentTetromino.length; r++) {
+                for (let c = 0; c < this.currentTetromino[r].length; c++) {
+                    if (this.currentTetromino[r][c]) {
+                        this.board.grid[this.y + r][this.x + c] = this.color;
+                    }
+                }
+            }
+            // this.board.clearLines();
+            this.board.generateTetromino(ctx);
+        }
     }
 
     moveRight(ctx) {
@@ -91,34 +100,23 @@ class Tetromino {
     }
 
     rotate(ctx) {
-        const next = this.piece.rotations[(this.rotation + 1) % (this.piece.rotations.length)]
-        if (!this.board.collision(0, 0, next)) {
+        const nextRotation = (this.rotation + 1) % (this.piece.rotations.length)
+        const nextTetromino = this.piece.rotations[nextRotation]
+
+        while (this.board.collision(0, 0, nextTetromino) === "border") {
             this.undraw(ctx);
-            this.rotation = (this.rotation + 1) % (this.piece.rotations.length);
-            this.currentTetromino = this.piece.rotations[this.rotation];
-            this.draw(ctx);
+            if (this.x > this.board.column/2) {
+                this.x--;
+            } else {
+                this.x++;
+            }
         }
-    }
 
-    drop(ctx) {
-        setInterval(() => {
-            this.moveDown(ctx);
-        }, 1000);
-    }
-
-    control(e, ctx) {
-        switch (e.key) {
-            case "ArrowRight":
-                this.moveRight(ctx);
-                break;
-            case "ArrowLeft":
-                this.moveLeft(ctx);
-                break;
-            case "ArrowUp":
-                this.rotate(ctx);
-                break;
-            case "ArrowDown":
-                this.moveDown(ctx);
+        if (!this.board.collision(0, 0, nextTetromino)) {
+            this.undraw(ctx);
+            this.rotation = nextRotation;
+            this.currentTetromino = nextTetromino;
+            this.draw(ctx);
         }
     }
 }
