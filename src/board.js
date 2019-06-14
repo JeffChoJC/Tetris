@@ -15,8 +15,8 @@ class Board {
         }
 
         this.draw(ctx);
-        this.drop(ctx);
         this.tetromino = new Tetromino(this, ctx);
+        this.timer = setInterval(() => this.drop(ctx), 1000);
 
         document.addEventListener("keydown", e => this.control(e, ctx));
     }
@@ -35,12 +35,11 @@ class Board {
     }
 
     drop(ctx) {
-        setInterval(() => {
-            this.tetromino.moveDown(ctx);
-        }, 1000);
+        this.tetromino.moveDown(ctx);
     }
 
     control(e, ctx) {
+        debugger
         switch (e.key) {
             case "ArrowRight":
                 this.tetromino.moveRight(ctx);

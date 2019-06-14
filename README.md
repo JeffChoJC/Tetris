@@ -41,7 +41,7 @@ For those that are unfamiliar with *Tetris*, there are 7 unique shapes (made of 
     * `t.js`
     * `s.js`
     * `z.js`
-* `player.js`
+* `game.js`
 * `scoreboard.js`
 
 ---
