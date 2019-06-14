@@ -40,6 +40,7 @@ class Tetromino {
 
         this.x = this.piece.x;
         this.y = this.piece.y;
+        this.offset = this.board.offset;
 
         this.draw(ctx);
     }
@@ -48,7 +49,7 @@ class Tetromino {
         for (let r = 0; r < this.currentTetromino.length; r++) {
             for (let c = 0; c < this.currentTetromino[r].length; c++) {
                 if (this.currentTetromino[r][c]) {
-                    drawSquare(this.x + c, this.y + r, this.color, ctx);
+                    drawSquare(this.x + c + this.offset, this.y + r, this.color, ctx);
                 }
             }
         }
@@ -58,7 +59,17 @@ class Tetromino {
         for (let r = 0; r < this.currentTetromino.length; r++) {
             for (let c = 0; c < this.currentTetromino[r].length; c++) {
                 if (this.currentTetromino[r][c]) {
-                    drawSquare(this.x + c, this.y + r, "white", ctx);
+                    drawSquare(this.x + c + this.offset, this.y + r, "white", ctx);
+                }
+            }
+        }
+    }
+
+    lock() {
+        for (let r = 0; r < this.currentTetromino.length; r++) {
+            for (let c = 0; c < this.currentTetromino[r].length; c++) {
+                if (this.currentTetromino[r][c]) {
+                    this.board.grid[this.y + r][this.x + c] = this.color;
                 }
             }
         }
@@ -66,18 +77,13 @@ class Tetromino {
 
     moveDown(ctx) {
         if (!this.board.collision(0, 1, this.currentTetromino)) {
+            this.board.scoreboard.addScore(4, ctx);
             this.undraw(ctx);
             this.y++;
             this.draw(ctx);
         } else {
-            for (let r = 0; r < this.currentTetromino.length; r++) {
-                for (let c = 0; c < this.currentTetromino[r].length; c++) {
-                    if (this.currentTetromino[r][c]) {
-                        this.board.grid[this.y + r][this.x + c] = this.color;
-                    }
-                }
-            }
-            this.board.clearLines();
+            this.lock();
+            this.board.clearLines(ctx);
             this.board.generateTetromino(ctx);
         }
     }
@@ -117,6 +123,13 @@ class Tetromino {
             this.currentTetromino = nextTetromino;
             this.draw(ctx);
         }
+    }
+
+    floor(ctx) {
+        while (!this.board.collision(0, 1, this.currentTetromino)) {
+            this.moveDown(ctx);
+        }
+        this.moveDown(ctx);
     }
 }
 

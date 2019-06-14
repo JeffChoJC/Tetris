@@ -1,10 +1,11 @@
-import { drawSquare } from './util';
+import { drawSquare, drawScore, drawLevel } from './util';
 import Tetromino from './tetrominos/tetromino';
 
 class Board {
-    constructor(ctx) {
+    constructor(scoreboard, ctx) {
         this.row = 20;
         this.column = 10;
+        this.offset = 6;
         
         this.grid = [];
         for (let r = 0; r < this.row; r++) {
@@ -14,17 +15,21 @@ class Board {
             }
         }
 
+        this.scoreboard = scoreboard;
+        
         this.draw(ctx);
-        this.tetromino = new Tetromino(this, ctx);
-        this.timer = setInterval(() => this.drop(ctx), 1000);
+        drawScore(this.scoreboard.currentScore, "black", ctx);
+        drawLevel(this.scoreboard.level, "black", ctx);
 
+        this.tetromino = new Tetromino(this, ctx);
+        this.speed = setInterval(() => this.drop(ctx), 1000);
         document.addEventListener("keydown", e => this.control(e, ctx));
     }
 
     draw(ctx) {
         for (let r = 0; r < this.row; r++) {
             for (let c = 0; c < this.column; c++) {
-                drawSquare(c, r, this.grid[r][c], ctx);
+                drawSquare(c + this.offset, r, this.grid[r][c], ctx);
             }
         }
     }
@@ -36,10 +41,10 @@ class Board {
 
     drop(ctx) {
         this.tetromino.moveDown(ctx);
+        this.scoreboard.addScore(4, ctx);
     }
 
     control(e, ctx) {
-        debugger
         switch (e.key) {
             case "ArrowRight":
                 this.tetromino.moveRight(ctx);
@@ -52,6 +57,9 @@ class Board {
                 break;
             case "ArrowDown":
                 this.tetromino.moveDown(ctx);
+                break;
+            case " ":
+                this.tetromino.floor(ctx);
         }
     }
 
@@ -81,8 +89,7 @@ class Board {
         return false;
     }
 
-    clearLines() {
-        debugger
+    clearLines(ctx) {
         for (let r = 0; r < this.row; r++) {
             for (let c = 0; c < this.column; c++) {
                 if (this.grid[r][c] === 'white') {
@@ -91,8 +98,8 @@ class Board {
 
                 if (c === this.column - 1) {
                     this.grid.splice(r, 1);
+                    this.scoreboard.addScore(10, ctx);
                     this.grid.unshift(new Array(10).fill("white"));
-                    debugger
                 }
             }
         }
