@@ -1,6 +1,6 @@
 class L {
     constructor() {
-        this.color = 'yellow';
+        this.color = 'gold';
         this.rotations = [
             [
                 [0, 1, 0],

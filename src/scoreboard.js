@@ -1,9 +1,12 @@
 import { drawScore, drawLevel } from './util';
 
 class Scoreboard {
-    constructor(ctx){
-        this.currentScore = 10000;
+    constructor(board, ctx){
+        this.board = board;
+
+        this.currentScore = 0;
         this.level = 1;
+        this.interval = 1000 - (this.level * 50)
     }
 
     addScore(points, ctx) {
@@ -13,10 +16,11 @@ class Scoreboard {
         drawLevel(this.level, "black", ctx);
     }
 
-    levelUp() {
-        debugger
+    levelUp(ctx) {
         if ((this.currentScore > (this.level * 2500)) && this.level < 10) {
             this.level++;
+            clearInterval(this.board.timer);
+            this.board.speed = setInterval(() => this.board.drop(ctx), this.interval);
         } 
     }
 }

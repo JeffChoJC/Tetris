@@ -1,8 +1,9 @@
 import { drawSquare, drawScore, drawLevel } from './util';
 import Tetromino from './tetrominos/tetromino';
+import Scoreboard from './scoreboard';
 
 class Board {
-    constructor(scoreboard, ctx) {
+    constructor(ctx) {
         this.row = 20;
         this.column = 10;
         this.offset = 6;
@@ -15,7 +16,7 @@ class Board {
             }
         }
 
-        this.scoreboard = scoreboard;
+        this.scoreboard = new Scoreboard(this, ctx);
         
         this.draw(ctx);
         drawScore(this.scoreboard.currentScore, "black", ctx);
@@ -35,8 +36,11 @@ class Board {
     }
 
     generateTetromino(ctx) {
-        this.draw(ctx);
-        this.tetromino = new Tetromino(this, ctx);
+        if (!this.gameOver()) {
+            this.tetromino = new Tetromino(this, ctx);
+        } else {
+            this.gameOver();
+        }
     }
 
     drop(ctx) {
@@ -103,6 +107,17 @@ class Board {
                 }
             }
         }
+    }
+
+    gameOver() {
+        for (let c = 0; c < this.column; c++) {
+            if (this.grid[0][c] !== "white") {
+                alert("Game Over");
+                clearInterval(this.speed);
+                return true;
+            }
+        }
+        return false;
     }
 }
 
