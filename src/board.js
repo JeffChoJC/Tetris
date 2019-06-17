@@ -22,7 +22,8 @@ class Board {
         drawScore(this.scoreboard.currentScore, "black", ctx);
         drawLevel(this.scoreboard.level, "black", ctx);
 
-        this.tetromino = new Tetromino(this, ctx);
+        this.history = [0, 1, 2, 3, 4, 5, 6];
+        this.generateTetromino(ctx);
         this.speed = setInterval(() => this.drop(ctx), 1000);
         document.addEventListener("keydown", e => this.control(e, ctx));
     }
@@ -35,10 +36,24 @@ class Board {
         }
     }
 
+    shuffle() {
+        for (let i = 6; i > 0; i--) {
+            const j = Math.floor(Math.random() * 7);
+            [this.history[i], this.history[j]] = [this.history[j], this.history[i]];
+        }
+    }
+
     generateTetromino(ctx) {
-        if (!this.gameOver()) {
+        if (this.history.length === 0) {
+            this.history = [0, 1, 2, 3, 4, 5, 6];
+            this.shuffle();
+        }
+
+        const pieceNumber = this.history[0];
+        if (this.history.includes(pieceNumber) && !this.gameOver()){
             this.draw(ctx);
-            this.tetromino = new Tetromino(this, ctx);
+            this.tetromino = new Tetromino(this, ctx, pieceNumber);
+            this.history.shift();
         } else {
             this.gameOver();
         }
@@ -46,7 +61,6 @@ class Board {
 
     drop(ctx) {
         this.tetromino.moveDown(ctx);
-        this.scoreboard.addScore(4, ctx);
     }
 
     control(e, ctx) {
@@ -103,7 +117,7 @@ class Board {
 
                 if (c === this.column - 1) {
                     this.grid.splice(r, 1);
-                    this.scoreboard.addScore(10, ctx);
+                    this.scoreboard.addScore(14, ctx);
                     this.grid.unshift(new Array(10).fill("white"));
                 }
             }

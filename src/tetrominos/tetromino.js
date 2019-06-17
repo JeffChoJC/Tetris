@@ -8,10 +8,10 @@ import Z from './z';
 import T from './t';
 
 class Tetromino {
-    constructor(board, ctx) {
+    constructor(board, ctx, pieceNumber) {
         this.board = board;
 
-        switch (Math.floor(Math.random() * 7)) {
+        switch (pieceNumber) {
             case 0:
                 this.piece = new I();
                 break;
@@ -28,10 +28,10 @@ class Tetromino {
                 this.piece = new S();
                 break;
             case 5:
-                this.piece = new Z();
+                this.piece = new T();
                 break;
             case 6:
-                this.piece = new T();
+                this.piece = new Z();
         }
 
         this.color = this.piece.color;
