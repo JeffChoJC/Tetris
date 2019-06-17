@@ -8,16 +8,15 @@ export const drawSquare = (x, y, color, ctx) => {
 }
 
 export const drawScore = (score, color, ctx) => {
-    debugger
     ctx.clearRect(0, 0, 120, 100);
-    ctx.font = "16px Arial";
+    ctx.font = "16px Times New Roman";
     ctx.fillStyle = color;
     ctx.fillText("Score: " + score, 8, 20);
 }
 
 export const drawLevel = (level, color, ctx) => {
     ctx.clearRect(8, 30, 100, 100);
-    ctx.font = "16px Arial";
+    ctx.font = "16px Times New Roman";
     ctx.fillStyle = color;
     ctx.fillText("Level: " + level, 8, 35);
 }

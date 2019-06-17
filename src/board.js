@@ -37,6 +37,7 @@ class Board {
 
     generateTetromino(ctx) {
         if (!this.gameOver()) {
+            this.draw(ctx);
             this.tetromino = new Tetromino(this, ctx);
         } else {
             this.gameOver();
