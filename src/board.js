@@ -50,12 +50,10 @@ class Board {
         }
 
         const pieceNumber = this.history[0];
-        if (this.history.includes(pieceNumber) && !this.gameOver()){
+        if (this.history.includes(pieceNumber) && !this.isGameOver()){
             this.draw(ctx);
             this.tetromino = new Tetromino(this, ctx, pieceNumber);
             this.history.shift();
-        } else {
-            this.gameOver();
         }
     }
 
@@ -124,7 +122,7 @@ class Board {
         }
     }
 
-    gameOver() {
+    isGameOver() {
         for (let c = 0; c < this.column; c++) {
             if (this.grid[0][c] !== "white") {
                 alert("Game Over");

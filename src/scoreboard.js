@@ -4,7 +4,7 @@ class Scoreboard {
     constructor(board, ctx){
         this.board = board;
 
-        this.currentScore = 15999;
+        this.currentScore = 0;
         this.level = 1;
         this.interval = 1000;
     }
