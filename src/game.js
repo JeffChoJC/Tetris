@@ -15,10 +15,11 @@ class Game {
     pause(e, ctx) {
         if (e.key === "p" && this.paused === false) {
             clearInterval(this.board.speed)
-            alert("Game is paused. Press enter to resume.");
+            alert('Game is paused. Press OK and any key to resume.');
             this.paused = true;
         } else if (this.paused === true) {
-            this.board.speed = setInterval(() => this.board.drop(ctx), 1000);
+            const interval = 1100 - (this.board.scoreboard.level * 100);
+            this.board.speed = setInterval(() => this.board.drop(ctx), interval);
             this.paused = false;
         }
     }
