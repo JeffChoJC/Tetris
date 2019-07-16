@@ -23,6 +23,7 @@ class Board {
         drawLevel(this.scoreboard.level, "black", ctx);
 
         this.history = [0, 1, 2, 3, 4, 5, 6];
+        this.shuffle();
         this.generateTetromino(ctx);
         this.speed = setInterval(() => this.drop(ctx), 1000);
         document.addEventListener("keydown", e => this.control(e, ctx));

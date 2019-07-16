@@ -61,7 +61,7 @@ For those that are unfamiliar with *Tetris*, there are 7 unique shapes (made of 
 - [ ] Implement shape manipulation/movement via keyboard
 
 **Day 3**
-Build board logic
+- Build board logic
     - [ ] Completed rows are deleted
     - [ ] Aggregate line height calculation & **game over** logic
     - [ ] Formulate scoring logic
@@ -69,7 +69,7 @@ Build board logic
     - [ ] Increase level & shorten "fall interval" when specified scores are reached
 
 **Day 4**
-Finish board logic
+- Finish board logic
     - [ ] Completed rows are deleted
     - [ ] Aggregate line height calculation & **game over** logic
     - [ ] Formulate scoring logic
