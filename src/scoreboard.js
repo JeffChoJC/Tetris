@@ -20,7 +20,6 @@ class Scoreboard {
         if ((this.currentScore > (this.level * 2000)) && this.level < 10) {
             this.level++;
             this.interval -= 100;
-            debugger
             clearInterval(this.board.speed);
             this.board.speed = setInterval(() => this.board.drop(ctx), this.interval);
         } 

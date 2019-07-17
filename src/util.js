@@ -7,6 +7,13 @@ export const drawSquare = (x, y, color, ctx) => {
     ctx.strokeRect(x * square, y * square, square, square);
 }
 
+export const eraseSquare = (x, y, color, ctx) => {
+    const square = 25;
+
+    ctx.fillStyle = color;
+    ctx.fillRect(x * square, y * square, square, square);
+}
+
 export const drawScore = (score, color, ctx) => {
     ctx.clearRect(0, 0, 120, 100);
     ctx.font = "16px Times New Roman";

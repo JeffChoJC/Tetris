@@ -1,4 +1,4 @@
-import { drawSquare } from '../util';
+import { drawSquare, eraseSquare } from '../util';
 import I from './i';
 import J from './j';
 import L from './l';
@@ -40,16 +40,15 @@ class Tetromino {
 
         this.x = this.piece.x;
         this.y = this.piece.y;
-        this.offset = this.board.offset;
-
-        this.draw(ctx);
+        this.offsetX = this.board.offsetX;
+        this.offsetY = this.board.offsetY;
     }
     
     draw(ctx) {
         for (let r = 0; r < this.currentTetromino.length; r++) {
             for (let c = 0; c < this.currentTetromino[r].length; c++) {
-                if (this.currentTetromino[r][c]) {
-                    drawSquare(this.x + c + this.offset, this.y + r, this.color, ctx);
+                if (this.currentTetromino[r][c] && this.y + r >= this.offsetY) {
+                    drawSquare(this.x + c + this.offsetX, this.y + r, this.color, ctx);
                 }
             }
         }
@@ -58,8 +57,10 @@ class Tetromino {
     undraw(ctx) {
         for (let r = 0; r < this.currentTetromino.length; r++) {
             for (let c = 0; c < this.currentTetromino[r].length; c++) {
-                if (this.currentTetromino[r][c]) {
-                    drawSquare(this.x + c + this.offset, this.y + r, "white", ctx);
+                if (this.currentTetromino[r][c] && this.y + r < this.offsetY) {
+                    eraseSquare(this.x + c + this.offsetX, this.y + r, "white", ctx);
+                } else if (this.currentTetromino[r][c]) {
+                    drawSquare(this.x + c + this.offsetX, this.y + r, "white", ctx);
                 }
             }
         }
@@ -68,8 +69,8 @@ class Tetromino {
     lock() {
         for (let r = 0; r < this.currentTetromino.length; r++) {
             for (let c = 0; c < this.currentTetromino[r].length; c++) {
-                if (this.currentTetromino[r][c]) {
-                    this.board.grid[this.y + r][this.x + c] = this.color;
+                if (this.currentTetromino[r][c] && this.y + r >= this.offsetY) {
+                    this.board.grid[this.y + r - this.offsetY][this.x + c] = this.color;
                 }
             }
         }

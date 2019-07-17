@@ -6,7 +6,8 @@ class Board {
     constructor(ctx) {
         this.row = 20;
         this.column = 10;
-        this.offset = 6;
+        this.offsetX = 6;
+        this.offsetY = 4;
         
         this.grid = [];
         for (let r = 0; r < this.row; r++) {
@@ -32,7 +33,7 @@ class Board {
     draw(ctx) {
         for (let r = 0; r < this.row; r++) {
             for (let c = 0; c < this.column; c++) {
-                drawSquare(c + this.offset, r, this.grid[r][c], ctx);
+                drawSquare(c + this.offsetX, r + this.offsetY, this.grid[r][c], ctx);
             }
         }
     }
@@ -51,7 +52,7 @@ class Board {
         }
 
         const pieceNumber = this.history[0];
-        if (this.history.includes(pieceNumber) && !this.isGameOver()){
+        if (this.isGameOver() === false) {
             this.draw(ctx);
             this.tetromino = new Tetromino(this, ctx, pieceNumber);
             this.history.shift();
@@ -91,7 +92,7 @@ class Board {
                 let newX = this.tetromino.x + c + x;
                 let newY = this.tetromino.y + r + y;
 
-                if (newY >= this.row) {
+                if (newY >= this.row + this.offsetY) {
                     return true;
                 }
 
@@ -99,8 +100,11 @@ class Board {
                     return "border";
                 }
 
-                if (this.grid[newY][newX] !== "white") {
-                    return true;
+                let gridY = newY - this.offsetY;
+                if (newY >= 4) {
+                    if (this.grid[gridY][newX] !== "white") {
+                        return true;
+                    }
                 }
             }
         }
@@ -125,6 +129,7 @@ class Board {
 
     isGameOver() {
         for (let c = 0; c < this.column; c++) {
+            debugger
             if (this.grid[0][c] !== "white") {
                 alert("Game Over");
                 clearInterval(this.speed);
