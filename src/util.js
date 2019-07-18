@@ -8,7 +8,6 @@ export const drawSquare = (x, y, color, ctx) => {
 }
 
 export const drawScore = (score, ctx) => {
-    debugger
     ctx.clearRect(0, 0, 140, 100);
     ctx.fillStyle = "black";
     ctx.fillText("Score: " + score, 8, 40);
