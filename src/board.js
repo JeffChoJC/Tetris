@@ -22,7 +22,7 @@ class Board {
         this.history = [0, 1, 2, 3, 4, 5, 6];
         this.shuffle();
         this.generateTetromino(ctx);
-        this.speed = setInterval(() => this.drop(ctx), 820);
+        this.speed;
         document.addEventListener("keydown", e => this.control(e, ctx));
     }
 

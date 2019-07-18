@@ -4,12 +4,13 @@ class Game {
     constructor(ctx) {
         this.board = new Board(ctx);
         this.paused = false;
-
-        document.addEventListener("keydown", e => this.pause(e, ctx))
+        
+        document.addEventListener("keydown", e => this.pause(e, ctx));
+        document.getElementById('play-button').addEventListener("click", () => this.start(ctx));
     }
 
-    start() {
-        
+    start(ctx) {
+        this.board.speed = setInterval(() => this.board.drop(ctx), 820);
     }
 
     pause(e, ctx) {
