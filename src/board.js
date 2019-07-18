@@ -1,4 +1,4 @@
-import { drawSquare, drawScore, drawLevel } from './util';
+import { drawSquare } from './util';
 import Tetromino from './tetrominos/tetromino';
 import Scoreboard from './scoreboard';
 
@@ -18,15 +18,11 @@ class Board {
         }
 
         this.scoreboard = new Scoreboard(this, ctx);
-        
-        this.draw(ctx);
-        drawScore(this.scoreboard.currentScore, "black", ctx);
-        drawLevel(this.scoreboard.level, "black", ctx);
 
         this.history = [0, 1, 2, 3, 4, 5, 6];
         this.shuffle();
         this.generateTetromino(ctx);
-        this.speed = setInterval(() => this.drop(ctx), 1000);
+        this.speed = setInterval(() => this.drop(ctx), 820);
         document.addEventListener("keydown", e => this.control(e, ctx));
     }
 
@@ -129,7 +125,6 @@ class Board {
 
     isGameOver() {
         for (let c = 0; c < this.column; c++) {
-            debugger
             if (this.grid[0][c] !== "white") {
                 alert("Game Over");
                 clearInterval(this.speed);

@@ -18,7 +18,7 @@ class Game {
             alert('Game is paused. Press OK and any key to resume.');
             this.paused = true;
         } else if (this.paused === true) {
-            const interval = 1100 - (this.board.scoreboard.level * 100);
+            const interval = 900 - (this.board.scoreboard.level * 80);
             this.board.speed = setInterval(() => this.board.drop(ctx), interval);
             this.paused = false;
         }

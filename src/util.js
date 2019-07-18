@@ -7,23 +7,15 @@ export const drawSquare = (x, y, color, ctx) => {
     ctx.strokeRect(x * square, y * square, square, square);
 }
 
-export const eraseSquare = (x, y, color, ctx) => {
-    const square = 25;
-
-    ctx.fillStyle = color;
-    ctx.fillRect(x * square, y * square, square, square);
-}
-
-export const drawScore = (score, color, ctx) => {
+export const drawScore = (score, ctx) => {
+    debugger
     ctx.clearRect(0, 0, 120, 100);
-    ctx.font = "16px Times New Roman";
-    ctx.fillStyle = color;
+    ctx.fillStyle = "black";
     ctx.fillText("Score: " + score, 8, 20);
 }
 
-export const drawLevel = (level, color, ctx) => {
+export const drawLevel = (level, ctx) => {
     ctx.clearRect(8, 30, 100, 100);
-    ctx.font = "16px Times New Roman";
-    ctx.fillStyle = color;
+    ctx.fillStyle = "black";
     ctx.fillText("Level: " + level, 8, 35);
 }

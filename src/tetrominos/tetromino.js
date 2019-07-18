@@ -57,9 +57,7 @@ class Tetromino {
     undraw(ctx) {
         for (let r = 0; r < this.currentTetromino.length; r++) {
             for (let c = 0; c < this.currentTetromino[r].length; c++) {
-                if (this.currentTetromino[r][c] && this.y + r < this.offsetY) {
-                    eraseSquare(this.x + c + this.offsetX, this.y + r, "white", ctx);
-                } else if (this.currentTetromino[r][c]) {
+                if (this.currentTetromino[r][c] && this.y + r >= this.offsetY) {
                     drawSquare(this.x + c + this.offsetX, this.y + r, "white", ctx);
                 }
             }
