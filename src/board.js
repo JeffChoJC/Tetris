@@ -48,7 +48,7 @@ class Board {
         }
 
         const pieceNumber = this.history[0];
-        if (this.isGameOver() === false) {
+        if (!this.isGameOver()) {
             this.draw(ctx);
             this.tetromino = new Tetromino(this, ctx, pieceNumber);
             this.history.shift();

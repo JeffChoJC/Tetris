@@ -3,14 +3,18 @@ import Board from "./board";
 class Game {
     constructor(ctx) {
         this.board = new Board(ctx);
+        this.started = false;
         this.paused = false;
         
-        document.addEventListener("keydown", e => this.pause(e, ctx));
         document.getElementById('play-button').addEventListener("click", () => this.start(ctx));
+        document.addEventListener("keydown", e => this.pause(e, ctx));
     }
 
     start(ctx) {
-        this.board.speed = setInterval(() => this.board.drop(ctx), 820);
+        if (this.started === false) {
+            this.board.speed = setInterval(() => this.board.drop(ctx), 820);
+            this.started = true;
+        }
     }
 
     pause(e, ctx) {
