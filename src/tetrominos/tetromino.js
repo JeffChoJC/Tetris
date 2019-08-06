@@ -83,6 +83,7 @@ class Tetromino {
         } else {
             this.lock();
             this.board.clearLines(ctx);
+            this.board.draw(ctx);
             this.board.generateTetromino(ctx);
         }
     }

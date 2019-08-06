@@ -8,6 +8,7 @@ class Board {
         this.column = 10;
         this.offsetX = 6;
         this.offsetY = 4;
+        this.controlsEnabled = false;
         
         this.grid = [];
         for (let r = 0; r < this.row; r++) {
@@ -55,26 +56,34 @@ class Board {
         }
     }
 
+    drawQueue(ctx) {
+        let first = new Tetromino(this, ctx, this.history[0]);
+        let second = new Tetromino(this, ctx, this.history[1]);
+        let third = new Tetromino(this, ctx, this.history[2]);
+    }
+
     drop(ctx) {
         this.tetromino.moveDown(ctx);
     }
 
     control(e, ctx) {
-        switch (e.key) {
-            case "ArrowRight":
-                this.tetromino.moveRight(ctx);
-                break;
-            case "ArrowLeft":
-                this.tetromino.moveLeft(ctx);
-                break;
-            case "ArrowUp":
-                this.tetromino.rotate(ctx);
-                break;
-            case "ArrowDown":
-                this.tetromino.moveDown(ctx);
-                break;
-            case " ":
-                this.tetromino.floor(ctx);
+        if (this.controlsEnabled === true) {
+            switch (e.key) {
+                case "ArrowRight":
+                    this.tetromino.moveRight(ctx);
+                    break;
+                case "ArrowLeft":
+                    this.tetromino.moveLeft(ctx);
+                    break;
+                case "ArrowUp":
+                    this.tetromino.rotate(ctx);
+                    break;
+                case "ArrowDown":
+                    this.tetromino.moveDown(ctx);
+                    break;
+                case " ":
+                    this.tetromino.floor(ctx);
+            }
         }
     }
 

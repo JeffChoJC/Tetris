@@ -4,9 +4,31 @@ body {
 
 h1 {
     font-size: 32px;
+    color: white;
     position: relative;
-    top: 85px;
+    top: 65px;
     margin-left: auto;
     margin-right: auto;
     max-width: 232px;
+}
+
+#play-button {
+    position: relative;
+    width: 80px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    outline: none;
+}
+
+#play-button:active {
+    background: transparent;
+    outline: transparent;
+}
+
+audio {
+    width: 20px;
+    position: relative;
+    left: 60%;
+    top: 80%;
 }

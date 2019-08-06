@@ -14,6 +14,7 @@ class Game {
         if (this.started === false) {
             this.board.speed = setInterval(() => this.board.drop(ctx), 820);
             this.started = true;
+            this.board.controlsEnabled = true;
         }
     }
 

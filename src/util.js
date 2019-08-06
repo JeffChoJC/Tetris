@@ -8,12 +8,12 @@ export const drawSquare = (x, y, color, ctx) => {
 }
 
 export const drawScore = (score, ctx) => {
-    ctx.clearRect(0, 0, 140, 100);
-    ctx.fillStyle = "black";
-    ctx.fillText("Score: " + score, 8, 40);
+    ctx.clearRect(0, 80, 149, 100);
+    ctx.fillStyle = "white";
+    ctx.fillText("Score: " + score, 20, 140);
 }
 
 export const drawLevel = (level, ctx) => {
-    ctx.fillStyle = "black";
-    ctx.fillText("Level:  " + level, 8, 20);
+    ctx.fillStyle = "white";
+    ctx.fillText("Level:  " + level, 20, 120);
 }
