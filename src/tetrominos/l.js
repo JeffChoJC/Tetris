@@ -28,6 +28,11 @@ class L {
             ],
         ]
 
+        this.queueImage = [
+            [0, 0, 1],
+            [1, 1, 1],
+        ]
+
         this.x = 3;
         this.y = 0;
     }

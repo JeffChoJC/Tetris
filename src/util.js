@@ -7,6 +7,15 @@ export const drawSquare = (x, y, color, ctx) => {
     ctx.strokeRect(x * square, y * square, square, square);
 }
 
+export const drawQueueSquare = (x, y, color, ctx) => {
+    const square = 18;
+
+    ctx.fillStyle = color;
+    ctx.fillRect(x * square, y * square, square, square);
+    ctx.strokeStyle = 'black';
+    ctx.strokeRect(x * square, y * square, square, square);
+}
+
 export const drawScore = (score, ctx) => {
     ctx.clearRect(0, 80, 149, 100);
     ctx.fillStyle = "white";

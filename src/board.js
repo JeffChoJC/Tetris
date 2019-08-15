@@ -1,4 +1,4 @@
-import { drawSquare } from './util';
+import { drawSquare, drawQueueSquare } from './util';
 import Tetromino from './tetrominos/tetromino';
 import Scoreboard from './scoreboard';
 
@@ -21,7 +21,7 @@ class Board {
         this.scoreboard = new Scoreboard(this, ctx);
 
         this.history = [0, 1, 2, 3, 4, 5, 6];
-        this.shuffle();
+        this.shuffle(this.history);
         this.generateTetromino(ctx);
         this.speed;
         document.addEventListener("keydown", e => this.control(e, ctx));
@@ -35,17 +35,19 @@ class Board {
         }
     }
 
-    shuffle() {
+    shuffle(array) {
         for (let i = 6; i > 0; i--) {
             const j = Math.floor(Math.random() * 7);
-            [this.history[i], this.history[j]] = [this.history[j], this.history[i]];
+            [array[i], array[j]] = [array[j], array[i]];
         }
+        
+        return array;
     }
 
     generateTetromino(ctx) {
-        if (this.history.length === 0) {
-            this.history = [0, 1, 2, 3, 4, 5, 6];
-            this.shuffle();
+        if (this.history.length < 4) {
+            let next = [0, 1, 2, 3, 4, 5, 6];
+            this.history = this.history.concat(this.shuffle(next));
         }
 
         const pieceNumber = this.history[0];
@@ -53,13 +55,31 @@ class Board {
             this.draw(ctx);
             this.tetromino = new Tetromino(this, ctx, pieceNumber);
             this.history.shift();
+            ctx.clearRect(448, 278, 150, 375);
+            this.drawQueue(this.history, ctx);
         }
     }
 
-    drawQueue(ctx) {
-        let first = new Tetromino(this, ctx, this.history[0]);
-        let second = new Tetromino(this, ctx, this.history[1]);
-        let third = new Tetromino(this, ctx, this.history[2]);
+    drawQueue(history, ctx) {
+        let first = new Tetromino(this, ctx, history[0]);
+        let second = new Tetromino(this, ctx, history[1]);
+        let third = new Tetromino(this, ctx, history[2]);
+
+        this.drawQueuePiece(22, first, ctx);
+        this.drawQueuePiece(26, second, ctx);
+        this.drawQueuePiece(30, third, ctx);
+    }
+
+    drawQueuePiece(y, tetromino, ctx) {
+        let queueTetromino = tetromino.piece.queueImage;
+
+        for (let r = 0; r < queueTetromino.length; r++) {
+            for (let c = 0; c < queueTetromino[r].length; c++) {
+                if (queueTetromino[r][c]) {
+                    drawQueueSquare(24.5 + c, y + r, tetromino.color, ctx);
+                }
+            }
+        }
     }
 
     drop(ctx) {
