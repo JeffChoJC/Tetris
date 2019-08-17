@@ -55,7 +55,7 @@ class Board {
             this.draw(ctx);
             this.tetromino = new Tetromino(this, ctx, pieceNumber);
             this.history.shift();
-            ctx.clearRect(448, 278, 150, 375);
+            ctx.clearRect(435, 278, 150, 375);
             this.drawQueue(this.history, ctx);
         }
     }

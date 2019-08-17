@@ -11,8 +11,8 @@ class O {
         ]
 
         this.queueImage = [
-            [0, 1, 1],
-            [0, 1, 1],
+            [1, 1],
+            [1, 1],
         ]
 
         this.x = 4;
