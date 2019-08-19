@@ -22,6 +22,7 @@ h1 {
 
 .canvas-container {
     width: 550px;
+    height: 650px;
     margin: 0 auto;
 }
 
@@ -72,4 +73,15 @@ audio {
     position: relative;
     top: 10px;
     left: 130px;
+}
+
+.queue-container {
+    padding: 6px 6px;
+    position: relative;
+    top: -435px;
+    left: 415px;
+    border: 3px dotted blueviolet;
+    width: 95px;
+    height: 245px;
+    color: white;
 }
