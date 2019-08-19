@@ -7,7 +7,7 @@ class Game {
         this.paused = false;
         
         document.getElementById('play-button').addEventListener("click", () => this.start(ctx));
-        document.getElementById('restart').addEventListener()
+        document.getElementById('restart').addEventListener("click", () => this.restart(ctx));
         document.addEventListener("keydown", e => this.pause(e, ctx));
     }
 
@@ -29,6 +29,12 @@ class Game {
             this.board.speed = setInterval(() => this.board.drop(ctx), interval);
             this.paused = false;
         }
+    }
+
+    restart(ctx) {
+        if (confirm("Are you sure you want to restart?")) {
+            location.reload();
+        }	
     }
 }
 

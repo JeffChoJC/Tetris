@@ -37,11 +37,32 @@ h1 {
     background-color: blue;
     color: white;
     font-family: 'Changa', sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     z-index: 10;
 }
 
 #play-button:hover {
+    background: red;
+    cursor: pointer;
+}
+
+#restart {
+    text-align: center;
+    position: relative;
+    left: 30px;
+    top: -196px;
+    width: 90px;
+    line-height: 30px;
+    border-radius: 5px;
+    border: 1px solid black;
+    background-color: blue;
+    color: white;
+    font-family: 'Changa', sans-serif;
+    font-size: 14px;
+    z-index: 10;
+}
+
+#restart:hover {
     background: red;
     cursor: pointer;
 }
