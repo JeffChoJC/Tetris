@@ -26,27 +26,29 @@ h1 {
 }
 
 #play-button {
+    text-align: center;
     position: relative;
-    right: 267px;
-    top: -180px;
+    left: 35px;
+    top: -200px;
     width: 80px;
     line-height: 30px;
     border-radius: 5px;
-    background-color: black;
+    border: 1px solid black;
+    background-color: blue;
     color: white;
-    outline: none;
     font-family: 'Changa', sans-serif;
     font-size: 16px;
     z-index: 10;
 }
 
-#play-button:active {
-    background: transparent;
-    outline: transparent;
+#play-button:hover {
+    background: red;
+    cursor: pointer;
 }
 
 audio {
     width: 300px;
     position: relative;
-    left: 60%;
+    top: 10px;
+    left: 130px;
 }

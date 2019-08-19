@@ -7,6 +7,7 @@ class Game {
         this.paused = false;
         
         document.getElementById('play-button').addEventListener("click", () => this.start(ctx));
+        document.getElementById('restart').addEventListener()
         document.addEventListener("keydown", e => this.pause(e, ctx));
     }
 
