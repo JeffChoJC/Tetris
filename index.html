@@ -19,20 +19,19 @@
             background: linear-gradient(rgba(30, 65, 200, 0.8),rgba(100, 65, 95, 0.8));
             display: block;
             margin: 0 auto;
-            margin-top: 2px;
             border: 1px solid black;
         }
     </style>
 </head>
 
 <body>
-    <button id="play-button">Play</button>
-    <audio controls loop src="./assets/theme_song.mp3" type="audio/mpeg"></audio>
-    <div>
+    <div class="canvas-container">
         <h1>TETRIS by Jeffrey</h1>
         <canvas id="canvas" width="550" height="650"></canvas>
+        <audio controls loop src="./assets/theme_song.mp3" type="audio/mpeg"></audio>
+        <button id="play-button">Play</button>
+        <script src="./src/main.js"></script>
     </div>
-    <script src="./src/main.js"></script>
 </body>
 
 </html>

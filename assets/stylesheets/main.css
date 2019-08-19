@@ -1,5 +1,13 @@
+html {
+    height: 100%;
+}
+
 body {
     font-family: 'Changa', sans-serif;
+    background-image: url("../images/background-img.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 h1 {
@@ -12,13 +20,24 @@ h1 {
     max-width: 232px;
 }
 
+.canvas-container {
+    width: 550px;
+    margin: 0 auto;
+}
+
 #play-button {
     position: relative;
+    right: 267px;
+    top: -180px;
     width: 80px;
+    line-height: 30px;
     border-radius: 5px;
     background-color: black;
     color: white;
     outline: none;
+    font-family: 'Changa', sans-serif;
+    font-size: 16px;
+    z-index: 10;
 }
 
 #play-button:active {
@@ -27,8 +46,7 @@ h1 {
 }
 
 audio {
-    width: 20px;
+    width: 300px;
     position: relative;
     left: 60%;
-    top: 80%;
 }

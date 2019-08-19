@@ -1,6 +1,6 @@
 class T {
     constructor() {
-        this.color = 'pink';
+        this.color = 'plum';
         this.rotations = [
             [
                 [0, 0, 0],
