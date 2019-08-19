@@ -79,9 +79,10 @@ audio {
     padding: 6px 6px;
     position: relative;
     top: -435px;
-    left: 415px;
-    border: 3px dotted blueviolet;
-    width: 95px;
+    left: 420px;
+    border: 3px dashed rgb(138, 13, 255);
+    width: 90px;
     height: 245px;
     color: white;
+    font-size: 16px;
 }
