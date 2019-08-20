@@ -86,3 +86,7 @@ audio {
     color: white;
     font-size: 16px;
 }
+
+.key-buttons {
+    width: 80px;
+}
