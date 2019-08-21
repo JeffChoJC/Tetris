@@ -1,5 +1,6 @@
 html {
     height: 100%;
+    width: 100%;
 }
 
 body {
@@ -18,6 +19,10 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     max-width: 232px;
+}
+
+.hidden {
+    display: none;
 }
 
 .canvas-container {
@@ -87,6 +92,24 @@ audio {
     font-size: 16px;
 }
 
-.key-buttons {
+.controls-modal {
+    position: relative;
+    margin: 0 auto;
+    width: 700px;
+    height: 200px;
+    top: -400px;
+    z-index: 15;
+}
+
+.key-images {
+    position: relative;
+    top: 70px;
     width: 80px;
 }
+
+.up-key {
+    position: relative;
+    left: 180px;
+    width: 80px;
+}
+
