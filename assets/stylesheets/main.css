@@ -92,24 +92,63 @@ audio {
     font-size: 16px;
 }
 
+.controls-background {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 20;
+}
+
 .controls-modal {
+    position: absolute;
+    width: 700px;
+    height: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.controls-modal h1 {
+    position: relative;
+    color: white;
+}
+
+.arrows {
     position: relative;
     margin: 0 auto;
+    background-color: blueviolet;
     width: 700px;
-    height: 200px;
-    top: -400px;
-    z-index: 15;
+    height: 300px;
 }
 
 .key-images {
     position: relative;
-    top: 70px;
+    top: 170px;
+    left: -50px;
     width: 80px;
 }
 
 .up-key {
     position: relative;
-    left: 180px;
+    top: 95px;
+    left: 117px;
     width: 80px;
 }
 
+.p-key {
+    position: relative;
+    top: 90px;
+    left: 125px;
+    width: 80px;
+}
+
+.spacebar {
+    position: relative;
+    top: 170px;
+    left: -50px;
+    height: 80px;
+    width: 270px;
+}
