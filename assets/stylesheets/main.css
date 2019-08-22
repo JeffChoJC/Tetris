@@ -11,16 +11,6 @@ body {
     background-repeat: no-repeat;
 }
 
-h1 {
-    font-size: 32px;
-    color: white;
-    position: relative;
-    top: 65px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 232px;
-}
-
 .hidden {
     display: none;
 }
@@ -29,6 +19,16 @@ h1 {
     width: 550px;
     height: 650px;
     margin: 0 auto;
+}
+
+.canvas-container h1 {
+    font-size: 32px;
+    color: white;
+    position: relative;
+    top: 65px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 232px;
 }
 
 #play-button {
@@ -103,10 +103,12 @@ audio {
 }
 
 .controls-modal {
+    display: flex;
+    flex-direction: column;
     position: absolute;
     background-color: blueviolet;
     width: 700px;
-    height: 400px;
+    height: auto;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -114,6 +116,8 @@ audio {
 }
 
 .controls-modal h1 {
+    top: 30px;
+    position: relative;
     color: white;
     text-align: center;
     font-size: 45px;
@@ -122,34 +126,65 @@ audio {
 .arrows {
     position: relative;
     width: 700px;
-    height: 300px;
+    height: 250px;
 }
 
 .key-images {
     position: relative;
-    top: 170px;
+    top: 140px;
     left: -50px;
     width: 80px;
 }
 
 .up-key {
     position: relative;
-    top: 95px;
+    top: 65px;
     left: 117px;
     width: 80px;
 }
 
 .p-key {
     position: relative;
-    top: 90px;
+    top: 60px;
     left: 130px;
     width: 80px;
 }
 
 .spacebar {
     position: relative;
-    top: 170px;
+    top: 140px;
     left: -50px;
     height: 80px;
     width: 270px;
+}
+
+.instructions {
+    color: white;
+    margin: 0 auto;
+    width: 480px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.instruction-line {
+    display: flex;
+}
+
+#column-left {
+    color:yellow;
+}
+
+#close-controls-button {
+    text-align: center;
+    width: 30px;
+    font-size: 25px;
+    position: relative;
+    color: white;
+    left: 10px;
+    top: 15px;
+}
+
+#close-controls-button:hover {
+    cursor: pointer;
 }

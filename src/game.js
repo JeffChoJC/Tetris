@@ -6,6 +6,8 @@ class Game {
         this.started = false;
         this.paused = false;
         
+        let modal = document.getElementsByClassName('controls-background');
+        document.getElementById('close-controls-button').onclick = () => modal[0].classList.toggle('hidden');
         document.getElementById('play-button').addEventListener("click", () => this.start(ctx));
         document.getElementById('restart').addEventListener("click", () => this.restart(ctx));
         document.addEventListener("keydown", e => this.pause(e, ctx));
