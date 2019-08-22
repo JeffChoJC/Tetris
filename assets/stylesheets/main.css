@@ -116,7 +116,7 @@ audio {
 }
 
 .controls-modal h1 {
-    top: 30px;
+    top: 20px;
     position: relative;
     color: white;
     text-align: center;
@@ -164,7 +164,7 @@ audio {
     width: 480px;
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-bottom: 40px;
 }
 
 .instruction-line {
