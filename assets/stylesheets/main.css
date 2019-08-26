@@ -35,7 +35,7 @@ body {
     text-align: center;
     position: relative;
     left: 35px;
-    top: -200px;
+    top: -180px;
     width: 80px;
     line-height: 30px;
     border-radius: 5px;
@@ -56,7 +56,7 @@ body {
     text-align: center;
     position: relative;
     left: 30px;
-    top: -196px;
+    top: -176px;
     width: 90px;
     line-height: 30px;
     border-radius: 5px;
@@ -83,7 +83,7 @@ audio {
 .queue-container {
     padding: 6px 6px;
     position: relative;
-    top: -435px;
+    top: -395px;
     left: 420px;
     border: 3px dashed rgb(138, 13, 255);
     width: 90px;
@@ -187,4 +187,10 @@ audio {
 
 #close-controls-button:hover {
     cursor: pointer;
+}
+
+.mute {
+    position: relative;
+    top: -85px;
+    left: 50px;
 }
