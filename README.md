@@ -15,7 +15,51 @@ For those that are unfamiliar with *Tetris*, there are 7 unique shapes (made of 
 ## Tetromino
 Each tetromino is defined by its own class. Its respective constructor details the tetromino's color, rotations, queue image, and starting position.
 
+```
+class T {
+    constructor() {
+        this.color = 'plum';
+        this.rotations = [
+            [
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 1, 0],
+                [1, 1, 1],
+                [0, 0, 0]
+            ],
+            [
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 1, 0],
+                [0, 1, 1],
+                [0, 1, 0]
+            ],
+            [
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 0, 0],
+                [1, 1, 1],
+                [0, 1, 0]
+            ],
+            [
+                [0, 0, 0],
+                [0, 0, 0],
+                [0, 1, 0],
+                [1, 1, 0],
+                [0, 1, 0]
+            ]
+        ]
 
+        this.queueImage = [
+            [0, 1, 0],
+            [1, 1, 1],
+        ]
+    
+        this.x = 3;
+        this.y = 0;
+    }
+}
+```
 
 ---
 
