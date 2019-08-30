@@ -6,19 +6,32 @@ For those that are unfamiliar with *Tetris*, there are 7 unique shapes (made of 
 
 ---
 
+## Gameplay
+
+<img src="./assets/images/gameplay.gif">
+
+---
+
+## Tetromino
+Each tetromino is defined by its own class. Its respective constructor details the tetromino's color, rotations, queue image, and starting position.
+
+
+
+---
+
 ## Functionality and MVP Features
-- [ ] Basic visuals
-- [ ] Players can:
-    - [ ] Move tetrominos left and right using the `"left"` and `"right`" keys
-    - [ ] Rotate tetrominos clockwise using the `"up"` key
-    - [ ] Accelerate the speed of falling tetrominos using the `"down"` key
-    - [ ] Instantly drop tetrominos using the `"space bar"`
-- [ ] Completed lines of blocks are deleted from gameplay
-- [ ] Players can view the next shape to be generated
-- [ ] Scoreboard displays `level`, `score`, and `high scores` (top 5)
-- [ ] Game:
-    - [ ] Can be paused/resumed
-    - [ ] Is over when a block exceed the top boundary of playing field
+- [x] Basic visuals
+- [x] Players can:
+    - [x] Move tetrominos left and right using the `"left"` and `"right`" keys
+    - [x] Rotate tetrominos clockwise using the `"up"` key
+    - [x] Accelerate the speed of falling tetrominos using the `"down"` key
+    - [x] Instantly drop tetrominos using the `"space bar"`
+- [x] Completed lines of blocks are deleted from gameplay
+- [x] Players can view the next shape to be generated
+- [x] Scoreboard displays `level` & `score`
+- [x] Game:
+    - [x] Can be paused/resumed
+    - [x] Is over when a block exceed the top boundary of playing field
 
 ## Architecture and Technologies
 * `Vanilla JavaScript`
@@ -42,7 +55,9 @@ For those that are unfamiliar with *Tetris*, there are 7 unique shapes (made of 
     * `s.js`
     * `z.js`
 * `game.js`
+* `main.js`
 * `scoreboard.js`
+* `util.js`
 
 ---
 ## Wireframe
@@ -52,38 +67,37 @@ For those that are unfamiliar with *Tetris*, there are 7 unique shapes (made of 
 ---
 ## Development Timeline
 **Day 1**
-- [ ] Review JavaScript & Canvas
-- [ ] Research other applicable documentation (i.e. color themes)
-- [ ] Build basic project skeleton
+- [x] Review JavaScript & Canvas
+- [x] Research other applicable documentation (i.e. color themes)
+- [x] Build basic project skeleton
 
 **Day 2**
-- [ ] Create tetrominos
-- [ ] Implement shape manipulation/movement via keyboard
+- [x] Create tetrominos
+- [x] Implement shape manipulation/movement via keyboard
 
 **Day 3**
 - Build board logic
-    - [ ] Completed rows are deleted
-    - [ ] Aggregate line height calculation & **game over** logic
-    - [ ] Formulate scoring logic
-    - [ ] Implement time interval for falling shapes
-    - [ ] Increase level & shorten "fall interval" when specified scores are reached
+    - [x] Completed rows are deleted
+    - [x] Aggregate line height calculation & **game over** logic
+    - [x] Formulate scoring logic
+    - [x] Implement time interval for falling shapes
+    - [x] Increase level & shorten "fall interval" when specified scores are reached
 
 **Day 4**
 - Finish board logic
-    - [ ] Completed rows are deleted
-    - [ ] Aggregate line height calculation & **game over** logic
-    - [ ] Formulate scoring logic
-    - [ ] Implement time interval for falling shapes
-    - [ ] Increase level & shorten "fall interval" when specified scores are reached
+    - [x] Completed rows are deleted
+    - [x] Aggregate line height calculation & **game over** logic
+    - [x] Formulate scoring logic
+    - [x] Implement time interval for falling shapes
+    - [x] Increase level & shorten "fall interval" when specified scores are reached
 
 **Day 5**
-- [ ] Build `high scores` table
-- [ ] Styling
+- [x] Styling
 
 **Over the Weekend**
-- [ ] Test for bugs
-- [ ] Implement color theme palette
+- [x] Test for bugs
+- [x] Implement color theme palette
 
 ---
 ## Bonus Features
-* Shadow that highlights falling shape's position-to-be
+- [ ] Shadow that highlights falling shape's position-to-be
