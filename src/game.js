@@ -22,6 +22,7 @@ class Game {
             this.board.controlsEnabled = true;
 
             this.music.loop = true;
+            this.music.muted = true;
             this.music.play();
         }
     }
@@ -35,6 +36,7 @@ class Game {
             const interval = 900 - (this.board.scoreboard.level * 80);
             this.board.speed = setInterval(() => this.board.drop(ctx), interval);
             this.paused = false;
+            this.mute();
         }
     }
 
