@@ -8,7 +8,7 @@ For those that are unfamiliar with *Tetris*, there are 7 unique shapes (made of 
 
 ## Gameplay
 
-<img src="./assets/images/gameplay.gif.icloud">
+<img src="./assets/images/gameplay 2.gif">
 
 ---
 
