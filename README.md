@@ -8,7 +8,7 @@ For those that are unfamiliar with *Tetris*, there are 7 unique shapes (made of 
 
 ## Gameplay
 
-<img src="./assets/images/gameplay.gif">
+<img src="./assets/images/gameplay.gif.icloud">
 
 ---
 
@@ -102,46 +102,3 @@ class T {
 * `main.js`
 * `scoreboard.js`
 * `util.js`
-
----
-## Wireframe
-
-<img src="./assets/images/wireframe.png"/>
-
----
-## Development Timeline
-**Day 1**
-- [x] Review JavaScript & Canvas
-- [x] Research other applicable documentation (i.e. color themes)
-- [x] Build basic project skeleton
-
-**Day 2**
-- [x] Create tetrominos
-- [x] Implement shape manipulation/movement via keyboard
-
-**Day 3**
-- Build board logic
-    - [x] Completed rows are deleted
-    - [x] Aggregate line height calculation & **game over** logic
-    - [x] Formulate scoring logic
-    - [x] Implement time interval for falling shapes
-    - [x] Increase level & shorten "fall interval" when specified scores are reached
-
-**Day 4**
-- Finish board logic
-    - [x] Completed rows are deleted
-    - [x] Aggregate line height calculation & **game over** logic
-    - [x] Formulate scoring logic
-    - [x] Implement time interval for falling shapes
-    - [x] Increase level & shorten "fall interval" when specified scores are reached
-
-**Day 5**
-- [x] Styling
-
-**Over the Weekend**
-- [x] Test for bugs
-- [x] Implement color theme palette
-
----
-## Bonus Features
-- [ ] Shadow that highlights falling shape's position-to-be
